@@ -62,13 +62,13 @@ int main()
 		//trebaju samo tasteri tval1 i tval2
 		if (flag == 1)
 		{
-			if (tval1 == '1')
+			if (tval1 == 1)
 			{
 				percentage += 0.1;
 				if ( percentage > 1)
 					percentage = 1;
 			}
-			else if (tval2 == '1')
+			else if (tval2 == 1)
 			{
 				percentage -= 0.1;
 				if (percentage < 0)
