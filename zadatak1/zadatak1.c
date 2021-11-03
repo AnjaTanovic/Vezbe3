@@ -50,7 +50,7 @@ int main()
 		tval4 = str[5] - 48;
 		free(str);
 
-		if (tval1_x != tval1 && tval2_x != tval2)
+		if (tval1_x != tval1 || tval2_x != tval2)
 		{
 			flag = 1;
 			tval1_x = tval1;
