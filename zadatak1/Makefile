@@ -1,6 +1,5 @@
 sources=$(wildcard *.c)
 objs=$(sources:.c=.o)
-
 result=zadatak1
 
 all: $(result)

@@ -1,3 +1,10 @@
+//Napraviti aplikaciju za rad sa drajverima za LED i Tastere: 
+//Pri cemu se aplikacija vrti u beskonacnoj petlji i pravi PWM signal. 
+//Inicijalno su sve LED iskljucene. Sa svakim pritiskom tastera 1 se 
+//faktor ispune poveca za 10%, a svakim pritiskom tastera 0 se faktor 
+//ispune smanji za 10%. Pripaziti na softversko diferenciranje i na 
+//limite da faktor ispune ne moze biti veci od 100% niti manji od 0%. 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
