@@ -16,6 +16,8 @@ int main()
 
 	//tasteri
 	char *str;
+	char *korak;
+	float x = 0.1;
 	char tval1,tval2,tval3,tval4;
 	char tval1_x, tval2_x; //pomocne za softv diferenciranje
 	size_t num_of_bytes = 6;
@@ -34,6 +36,37 @@ int main()
 
 	while(1)
 	{
+		//Citanje vrednosti prekidaci
+		fp = fopen ("/dev/switch", "r");
+		if(fp==NULL)
+		{
+			puts("Problem pri otvaranju /dev/switch");
+			return -1;
+		}
+		korak = (char *)malloc(num_of_bytes+1); 
+		getline(&korak, &num_of_bytes, fp);
+		
+		if(fclose(fp))
+		{
+			puts("Problem pri zatvaranju /dev/button");
+			return -1;
+		}
+
+		if (korak[4] == '0')
+		{
+			if (korak[5] == '0')	
+				x = 0.05;
+			else
+				x = 0.1;
+		}
+		else
+		{
+			if (korak[5] == '0')	
+				x = 0.15;
+			else
+				x = 0.2;
+		}
+		
 		//Citanje vrednosti tastera
 		fp = fopen ("/dev/button", "r");
 		if(fp==NULL)
@@ -71,13 +104,13 @@ int main()
 		{
 			if (tval1 == 1)
 			{
-				percentage += 0.1;
+				percentage += x;
 				if ( percentage > 1)
 					percentage = 1;
 			}
 			else if (tval2 == 1)
 			{
-				percentage -= 0.1;
+				percentage -= x;
 				if (percentage < 0)
 					percentage = 0;
 			}
